@@ -1,0 +1,55 @@
+<rdf:RDF xmlns="http://TEN/QHSES/QualityOnto/"
+         xml:base="http://TEN/QHSES/QualityOnto/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <!-- Individuals -->
+    <Audit rdf:about="#audit1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audit 1</name>
+        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Internal Audit</title>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-27T10:00:00</date>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</duration>
+        <scope rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quality management system audit</scope>
+        <HasCheckListItem rdf:resource="#checklistItem1"/>
+        <IsLeadBy rdf:resource="#leadAuditor1"/>
+        <Target rdf:resource="#auditee1"/>
+        <AssignedTo rdf:resource="#auditTeam1"/>
+        <HappensIn rdf:resource="#workplace1"/>
+    </Audit>
+
+    <Auditee rdf:about="#auditee1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Doe</name>
+    </Auditee>
+
+    <Lead_Auditor rdf:about="#leadAuditor1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alice Smith</name>
+    </Lead_Auditor>
+
+    <Checklist_item rdf:about="#checklistItem1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Checklist Item 1</name>
+    </Checklist_item>
+
+    <Audit_Team rdf:about="#auditTeam1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audit Team 1</name>
+    </Audit_Team>
+
+    <Workplace rdf:about="#workplace1">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Company Headquarters</name>
+    </Workplace>
+
+    <!-- Object Properties -->
+    <AssignedTo rdf:about="#assignedTo"/>
+    <HasCheckListItem rdf:about="#hasCheckListItem"/>
+    <IsLeadBy rdf:about="#isLeadBy"/>
+    <Target rdf:about="#target"/>
+    <HappensIn rdf:about="#happensIn"/>
+
+    <!-- Data Properties -->
+    <date rdf:about="#date"/>
+    <duration rdf:about="#duration"/>
+    <title rdf:about="#title"/>
+    <scope rdf:about="#scope"/>
+    <name rdf:about="#name"/>
+
+</rdf:RDF>
