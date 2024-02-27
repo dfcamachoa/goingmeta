@@ -1,0 +1,56 @@
+{
+  "audit": {
+    "@type": "Audit",
+    "title": "Internal Quality Audit",
+    "date": "2024-02-27T10:00:00",
+    "duration": 2,
+    "scope": "Audit scope description here",
+    "AssignedTo": "Audit Team A",
+    "IsLeadBy": "Lead Auditor X",
+    "HasCheckListItem": [
+      {
+        "@type": "Checklist_item",
+        "name": "Checklist Item 1",
+        "Generates": {
+          "@type": "Finding",
+          "Consequence": "Non-conformity",
+          "Requires": {
+            "@type": "Action_Plan",
+            "title": "Action Plan for Non-conformity",
+            "date": "2024-03-05"
+          }
+        }
+      },
+      {
+        "@type": "Checklist_item",
+        "name": "Checklist Item 2",
+        "Generates": {
+          "@type": "Finding",
+          "Consequence": "OFI"
+        }
+      }
+    ]
+  },
+  "auditor": {
+    "@type": "Auditor",
+    "name": "John Doe"
+  },
+  "auditTeam": {
+    "@type": "Audit_Team",
+    "AssignedTo": {
+      "@type": "Audit",
+      "title": "External Quality Audit",
+      "date": "2024-03-10T09:30:00"
+    },
+    "AssignedToTeam": [
+      {
+        "@type": "Auditor",
+        "name": "Jane Smith"
+      },
+      {
+        "@type": "Auditor",
+        "name": "Bob Johnson"
+      }
+    ]
+  }
+}
