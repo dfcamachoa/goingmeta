@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://TEN/QHSES/QualityOnto/"
+     xml:base="http://TEN/QHSES/QualityOnto/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <!-- Individual: Audit1 -->
+    <Audit rdf:about="#Audit1">
+        <rdf:type rdf:resource="http://TEN/QHSES/QualityOnto#Audit"/>
+        <title>Audit Title 1</title>
+        <date>2024-02-27T10:00:00</date>
+        <duration>3</duration>
+        <!-- You can add more properties based on your ontology -->
+    </Audit>
+
+    <!-- Individual: Auditor1 -->
+    <Auditor rdf:about="#Auditor1">
+        <rdf:type rdf:resource="http://TEN/QHSES/QualityOnto#Auditor"/>
+        <name>John Doe</name>
+        <!-- You can add more properties based on your ontology -->
+    </Auditor>
+
+    <!-- Property: AssignedTo -->
+    <rdf:Description rdf:about="#Audit1_AssignedTo_Auditor1">
+        <rdf:type rdf:resource="http://TEN/QHSES/QualityOnto#AssignedTo"/>
+        <rdf:subject rdf:resource="#Audit1"/>
+        <rdf:object rdf:resource="#Auditor1"/>
+    </rdf:Description>
+
+</rdf:RDF>
