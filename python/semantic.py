@@ -1,7 +1,7 @@
 import streamlit as st
 from graphdatascience import GraphDataScience
 
-neo = GraphDataScience("neo4j://localhost:7687", auth=("neo4j", "neoneoneo"), database="movies2")
+neo = GraphDataScience("neo4j://localhost:7687", auth=("neo4j", "neoneoneo"), database="neo4j")
 
 def list_categories():
     query = """

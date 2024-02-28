@@ -1,7 +1,7 @@
 import streamlit as st
 from graphdatascience import GraphDataScience
 
-neo = GraphDataScience("neo4j://localhost:7687", auth=("neo4j", "neoneoneo"), database="movies")
+neo = GraphDataScience("neo4j://localhost:7687", auth=("neo4j", "neoneoneo"), database="neo4j")
 
 def list_categories():
     return neo.run_cypher("call n10s.inference.labels()")

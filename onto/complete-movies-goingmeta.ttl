@@ -209,6 +209,13 @@
        rdfs:comment "location of an object, structure or event"@en .
 
 
+###  neo4j://graph.schema#Poet
+:Poet rdf:type owl:Class ;
+      rdfs:subClassOf :PerformingArtist ;
+      rdfs:comment "A person that tells poetry"@en ;
+      rdfs:label "Poet"@en .
+
+
 ###  neo4j://graph.schema#Producer
 :Producer rdf:type owl:Class ;
           rdfs:subClassOf :Person ;

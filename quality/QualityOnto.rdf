@@ -17,6 +17,23 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#qhses:criticality -->
+
+    <rdfs:Datatype rdf:about="http://TEN/QHSES/QualityOnto#qhses:criticality"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -86,6 +103,7 @@
 
     <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#GainedBy">
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Lesson_Learned"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Case"/>
     </owl:ObjectProperty>
     
 
@@ -104,6 +122,8 @@
 
     <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#HappensIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Case"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Location"/>
     </owl:ObjectProperty>
     
 
@@ -124,6 +144,16 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Auditor"/>
         <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Checklist_item"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#IsCause -->
+
+    <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#IsCause">
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Finding"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Object"/>
+        <rdfs:comment xml:lang="en">A Finding is caused by auditing an object</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -168,11 +198,31 @@
     
 
 
+    <!-- http://TEN/QHSES/QualityOnto#ReportIssued -->
+
+    <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#ReportIssued">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Audit"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Audit_Report"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://TEN/QHSES/QualityOnto#Requires -->
 
     <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#Requires">
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Non-conformity"/>
         <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Action_Plan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#SubjectToSurveillance -->
+
+    <owl:ObjectProperty rdf:about="http://TEN/QHSES/QualityOnto#SubjectToSurveillance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Subcontractor"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Inspection"/>
     </owl:ObjectProperty>
     
 
@@ -187,15 +237,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
-        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Case"/>
-        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#Workplace"/>
-    </rdf:Description>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -207,6 +248,46 @@
     
 
 
+    <!-- http://TEN/QHSES/QualityOnto#Executive_summary -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#Executive_summary">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#actual_end_date -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#actual_end_date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#client_participation -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#client_participation">
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Project_Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#criticality -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#criticality">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Non-conformity"/>
+        <rdfs:range rdf:resource="http://TEN/QHSES/QualityOnto#qhses:criticality"/>
+        <rdfs:comment xml:lang="en">Criticality of a Non-Conformity</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://TEN/QHSES/QualityOnto#date -->
 
     <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#date">
@@ -214,6 +295,37 @@
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Audit"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment xml:lang="en">Planned date for the audit</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#detailed_description -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#detailed_description">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Non-conformity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#detection_date -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#detection_date">
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Finding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Date when non-conformance has been detected</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#due_date -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#due_date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Finding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Expected date to close the finding</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -229,11 +341,41 @@
     
 
 
+    <!-- http://TEN/QHSES/QualityOnto#estimated_end_date -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#estimated_end_date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#material_code -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#material_code">
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Equipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Code that identifies the Material according to GPS-COR-20104</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://TEN/QHSES/QualityOnto#name -->
 
     <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#name">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#proposed_action -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#proposed_action">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Non-conformity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -250,13 +392,42 @@
     
 
 
+    <!-- http://TEN/QHSES/QualityOnto#start_date -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#start_date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://TEN/QHSES/QualityOnto#title -->
 
     <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#title">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Audit"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Case"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">Audit title</rdfs:comment>
+        <rdfs:comment xml:lang="en">Audit title that gives information on the audit scope and purpose</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#work_area -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#work_area">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#work_code -->
+
+    <owl:DatatypeProperty rdf:about="http://TEN/QHSES/QualityOnto#work_code">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://TEN/QHSES/QualityOnto#Construction_Subcontractor_Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -291,7 +462,14 @@
 
     <!-- http://TEN/QHSES/QualityOnto#Activity -->
 
-    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Activity"/>
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Activity">
+        <rdfs:comment xml:lang="en">A thing that a person or group does or has done</rdfs:comment>
+        <rdfs:comment xml:lang="es">una cosa que una persona o grupo hace o ha hecho</rdfs:comment>
+        <rdfs:comment xml:lang="fr">une chose qu&apos;une personne ou un groupe fait ou a faite</rdfs:comment>
+        <rdfs:label xml:lang="es">Actividad</rdfs:label>
+        <rdfs:label xml:lang="en">Activity</rdfs:label>
+        <rdfs:label xml:lang="fr">Activité</rdfs:label>
+    </owl:Class>
     
 
 
@@ -317,6 +495,15 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Audit_Checklist">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#Audit_Report -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Audit_Report">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Document"/>
+        <rdfs:comment xml:lang="en">Report generated after the execution of an Audit</rdfs:comment>
     </owl:Class>
     
 
@@ -397,6 +584,7 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Consequence">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Case"/>
+        <rdfs:comment xml:lang="en">Cost of Non quality associated</rdfs:comment>
     </owl:Class>
     
 
@@ -413,6 +601,15 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Construction_Site">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Workplace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#Construction_Subcontractor_Product -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Construction_Subcontractor_Product">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Project_Activity"/>
+        <rdfs:comment xml:lang="en">Constructor subcontractor product</rdfs:comment>
     </owl:Class>
     
 
@@ -447,6 +644,7 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Document">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Information_Object"/>
+        <rdfs:comment xml:lang="en">Written or printed record that provides information or evidence about a particular subject or event</rdfs:comment>
     </owl:Class>
     
 
@@ -463,6 +661,14 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Engineering_Rework">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Rework"/>
+    </owl:Class>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#Equipment -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Equipment">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Artefact"/>
     </owl:Class>
     
 
@@ -549,6 +755,15 @@
     
 
 
+    <!-- http://TEN/QHSES/QualityOnto#Inspector -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Inspector">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Person"/>
+        <rdfs:comment xml:lang="en">Site inspector</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://TEN/QHSES/QualityOnto#Internal_Auditee -->
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Internal_Auditee">
@@ -570,7 +785,7 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Internal_Quality_Audit">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Quality_Audit"/>
-        <rdfs:comment xml:lang="en">Internal Audit done by T.EN to T.EN</rdfs:comment>
+        <rdfs:comment xml:lang="en">Internal Audit done by T.EN to T.EN internal processes/activites</rdfs:comment>
     </owl:Class>
     
 
@@ -780,6 +995,7 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Quality_Audit">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Audit"/>
+        <rdfs:comment xml:lang="en">Record of management of an independent and documented process for obtaining objective evidence of the assesment of processes, procedures, and requirements related to quality</rdfs:comment>
     </owl:Class>
     
 
@@ -796,6 +1012,15 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Standard">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#Subcontractor -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Subcontractor">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Organization"/>
+        <rdfs:comment>Organization subject to surveillance</rdfs:comment>
     </owl:Class>
     
 
@@ -837,6 +1062,16 @@
 
     <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Warranty_LD">
         <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Consequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://TEN/QHSES/QualityOnto#Workarea -->
+
+    <owl:Class rdf:about="http://TEN/QHSES/QualityOnto#Workarea">
+        <rdfs:subClassOf rdf:resource="http://TEN/QHSES/QualityOnto#Location"/>
+        <rdfs:comment xml:lang="en">Work area where surveillance has been done</rdfs:comment>
+        <rdfs:label xml:lang="en">Work Area</rdfs:label>
     </owl:Class>
     
 
